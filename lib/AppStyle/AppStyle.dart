@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppStyle {
-  static Color lightPrimaryColor = Colors.white;
+  static Color lightPrimaryColor = const Color(0xFF39A552);
   static Color lightOnPrimaryColor = Colors.white;
-  static Color lightSecondary = Colors.white;
+  static Color lightSecondary = const Color(0xFF303030);
   static Color lightOnSecondary = Colors.white;
-  static Color lightTertiary = Colors.white;
+  static Color lightTertiary = const Color(0xFF4F5A69);
   static Color darkPrimaryColor = Colors.black;
   static Color darkOnPrimaryColor = Colors.black;
   static Color darkSecondary = Colors.black;
@@ -13,7 +13,33 @@ class AppStyle {
   static Color darkTertiary = Colors.black;
 
   static ThemeData lightTheme = ThemeData(
-      textTheme: const TextTheme(),
+      appBarTheme: AppBarTheme(
+        color: lightPrimaryColor,
+        toolbarHeight: 67,
+        centerTitle: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(50),
+          ),
+        ),
+      ),
+      textTheme: TextTheme(
+        labelMedium: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 22,
+          color: lightOnPrimaryColor,
+        ),
+        headlineSmall: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 24,
+          color: lightOnPrimaryColor,
+        ),
+        labelLarge: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 22,
+          color: lightTertiary,
+        ),
+      ),
       colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.white,
           primary: lightPrimaryColor,
