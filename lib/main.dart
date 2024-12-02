@@ -10,10 +10,12 @@ import 'package:provider/provider.dart';
 import 'AppStyle/AppStyle.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => SettingsProvider(),
-    child: const MyApp(),
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SettingsProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+
     return MaterialApp(
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -33,7 +37,7 @@ class MyApp extends StatelessWidget {
         Locale('ar'), // Arabic
       ],
       debugShowCheckedModeBanner: false,
-      locale: SettingsProvider.locale,
+      locale: settingsProvider.locale,
       theme: AppStyle.lightTheme,
       darkTheme: AppStyle.darkTheme,
       themeMode: ThemeMode.light,
@@ -43,7 +47,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (_) => const HomeScreen(),
         NewsScreen.routeName: (_) => const NewsScreen()
       },
-      initialRoute: SplashScreen.routeName,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }

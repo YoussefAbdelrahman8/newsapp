@@ -1,1 +1,16 @@
-{}
+{
+  "newsapp": "تطبيق الأخبار",
+  "newsappp": "تطبيق الأخبار!",
+  "pickcategory": "اختر فئتك المهتم بها",
+  "sports": "الرياضة",
+  "politics": "السياسة",
+  "health": "الصحة",
+  "business": "الأعمال",
+  "environment": "البيئة",
+  "science": "العلوم",
+  "categories": "الفئات",
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "english": "الانجليزية",
+  "arabic": "العربية"
+}

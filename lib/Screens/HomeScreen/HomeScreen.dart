@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/Screens/HomeScreen/DrawerWidget/CustomDrawerWidget.dart';
 import 'package:newsapp/Screens/HomeScreen/Tabs/CategoryTab/CategoryTab.dart';
 import 'package:newsapp/Screens/HomeScreen/Tabs/SettingsTab/Settings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = "home";
@@ -22,34 +23,37 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-    return Stack(
-      children: [
-        Container(
-          color: Colors.white,
+    double width = MediaQuery
+        .of(context)
+        .size
+        .width;
+    double height = MediaQuery
+        .of(context)
+        .size
+        .height;
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        image: DecorationImage(
+          image: AssetImage("assets/images/pattern.png"),
+          fit: BoxFit.fill,
         ),
-        Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/pattern.png"),
-              fit: BoxFit.fill,
+      ),
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            title: Text(
+              tabId == Settings.id ? AppLocalizations.of(context)!.settings : AppLocalizations.of(context)!.newsapp,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .labelMedium,
             ),
           ),
-          child: Scaffold(
-              backgroundColor: Colors.transparent,
-              appBar: AppBar(
-                title: Text(
-                  tabId == Settings.id ? "Settings" : 'News App',
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-              ),
-              drawer: CustomDrawerWidget(
-                onTab: changeTab,
-              ),
-              body: tabs[tabId]),
-        ),
-      ],
+          drawer: CustomDrawerWidget(
+            onTab: changeTab,
+          ),
+          body: tabs[tabId]),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/Screens/HomeScreen/DrawerWidget/DrawerItem.dart';
 import 'package:newsapp/Screens/HomeScreen/Tabs/CategoryTab/CategoryTab.dart';
 import 'package:newsapp/Screens/HomeScreen/Tabs/SettingsTab/Settings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
   Function(int) onTab;
@@ -19,20 +20,20 @@ class CustomDrawerWidget extends StatelessWidget {
             color: Theme.of(context).colorScheme.primary,
             child: Center(
               child: Text(
-                "News App!",
+                AppLocalizations.of(context)!.newsappp,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
           ),
           DrawerItem(
             id: CategoryTab.id,
-            label: "Categories",
+            label: AppLocalizations.of(context)!.categories,
             icon: Icons.view_list_sharp,
             onTab: onTab,
           ),
           DrawerItem(
             id: Settings.id,
-            label: "Settings",
+            label: AppLocalizations.of(context)!.settings,
             icon: Icons.settings,
             onTab: onTab,
           ),

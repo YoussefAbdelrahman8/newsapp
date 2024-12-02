@@ -49,6 +49,146 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `News App`
+  String get newsapp {
+    return Intl.message(
+      'News App',
+      name: 'newsapp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News App!`
+  String get newsappp {
+    return Intl.message(
+      'News App!',
+      name: 'newsappp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick your category\nof interest`
+  String get pickcategory {
+    return Intl.message(
+      'Pick your category\nof interest',
+      name: 'pickcategory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sports`
+  String get sports {
+    return Intl.message(
+      'Sports',
+      name: 'sports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Politics`
+  String get politics {
+    return Intl.message(
+      'Politics',
+      name: 'politics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health`
+  String get health {
+    return Intl.message(
+      'Health',
+      name: 'health',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Business`
+  String get business {
+    return Intl.message(
+      'Business',
+      name: 'business',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Environment`
+  String get environment {
+    return Intl.message(
+      'Environment',
+      name: 'environment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Science`
+  String get science {
+    return Intl.message(
+      'Science',
+      name: 'science',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message(
+      'Categories',
+      name: 'categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

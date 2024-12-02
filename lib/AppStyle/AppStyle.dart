@@ -14,6 +14,15 @@ class AppStyle {
 
   static ThemeData lightTheme = ThemeData(
       appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(
+          color: lightOnPrimaryColor,
+          size: 30,
+        ),
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 22,
+          color: lightOnPrimaryColor,
+        ),
         color: lightPrimaryColor,
         toolbarHeight: 67,
         centerTitle: true,
