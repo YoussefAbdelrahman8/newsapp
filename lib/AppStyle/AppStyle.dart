@@ -13,6 +13,42 @@ class AppStyle {
   static Color darkTertiary = Colors.black;
 
   static ThemeData lightTheme = ThemeData(
+      inputDecorationTheme: InputDecorationTheme(
+          prefixIconColor: lightPrimaryColor,
+          suffixIconColor: lightPrimaryColor,
+          fillColor: lightOnPrimaryColor,
+          filled: true,
+          hintStyle: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+              color: lightPrimaryColor.withOpacity(28 / 100)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color: Colors.transparent)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color: Colors.transparent))),
+      scaffoldBackgroundColor: Colors.transparent,
+      tabBarTheme: TabBarTheme(
+        labelPadding: const EdgeInsets.symmetric(horizontal: 5),
+        tabAlignment: TabAlignment.start,
+        labelColor: lightOnPrimaryColor,
+        dividerHeight: 0,
+        unselectedLabelColor: lightPrimaryColor,
+        labelStyle: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+        ),
+        indicator: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(color: lightPrimaryColor, width: 1),
+          color: lightPrimaryColor,
+        ),
+      ),
       appBarTheme: AppBarTheme(
         iconTheme: IconThemeData(
           color: lightOnPrimaryColor,
@@ -28,11 +64,25 @@ class AppStyle {
         centerTitle: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(50),
+            bottom: Radius.circular(40),
           ),
         ),
       ),
       textTheme: TextTheme(
+        bodyMedium: const TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          color: Color(0xFF42505C),
+        ),
+        titleSmall: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 10,
+          color: Color(0xFF79828B),
+        ),
+        labelSmall: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+        ),
         labelMedium: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 22,

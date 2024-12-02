@@ -18,19 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
     CategoryTab.id: CategoryTab(),
     Settings.id: const Settings(),
   };
-
-  int tabId = 0;
+  late int? tabId =
+      (ModalRoute.of(context)?.settings.arguments ?? CategoryTab.id) as int?;
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double height = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -43,11 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: Text(
-              tabId == Settings.id ? AppLocalizations.of(context)!.settings : AppLocalizations.of(context)!.newsapp,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .labelMedium,
+              tabId == Settings.id
+                  ? AppLocalizations.of(context)!.settings
+                  : AppLocalizations.of(context)!.newsapp,
+              style: Theme.of(context).textTheme.labelMedium,
             ),
           ),
           drawer: CustomDrawerWidget(

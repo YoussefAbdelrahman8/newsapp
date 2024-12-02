@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsProvider extends ChangeNotifier {
-   Locale locale = const Locale("en");
+    Locale locale = const Locale("en");
 
   switchLanguage(Locale newLocale) {
     if (newLocale == locale) return;

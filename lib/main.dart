@@ -45,9 +45,9 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.routeName: (_) => const SplashScreen(),
         HomeScreen.routeName: (_) => const HomeScreen(),
-        NewsScreen.routeName: (_) => const NewsScreen()
+        NewsScreen.routeName: (_) =>  NewsScreen()
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }

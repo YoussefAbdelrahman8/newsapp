@@ -14,7 +14,7 @@ class CategoryButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context,NewsScreen.routeName);
+        Navigator.pushNamed(context,NewsScreen.routeName,arguments: category);
       },
       child: ButtonDesign(category: category),
     );
