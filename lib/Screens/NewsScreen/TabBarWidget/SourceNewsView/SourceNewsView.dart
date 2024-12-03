@@ -19,8 +19,8 @@ class _SourceNewsViewState extends State<SourceNewsView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<dynamic>(
-      future:
-          ApiManger.getArticles(widget.source.id ?? "", widget.searchKey ?? ""),
+      future: ApiManger.getArticles(
+          widget.source.id ?? "", widget.searchKey ?? "", context),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -39,6 +39,9 @@ class _SourceNewsViewState extends State<SourceNewsView> {
         }
 
         List<Articles> articles = snapshot.data?.articles ?? [];
+        if (articles.isEmpty) {
+          return const SizedBox(height: 100, child: Text("No Articles found."));
+        }
         return ListView.builder(
           itemCount: articles.length,
           itemBuilder: (context, index) {

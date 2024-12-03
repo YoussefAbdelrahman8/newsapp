@@ -3,15 +3,12 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:newsapp/API/ApiManger.dart';
 import 'package:newsapp/DataClasses/Source.dart';
-
 import 'package:newsapp/Screens/HomeScreen/HomeScreen.dart';
-import 'package:newsapp/Screens/NewsScreen/SearchTextfield/SearchTextfield.dart';
-
 import 'package:newsapp/Screens/NewsScreen/TabBarWidget/TabBarWidget.dart';
-
 import '../../DataClasses/Category.dart';
 import '../../DataClasses/SourceManger.dart';
 import '../HomeScreen/DrawerWidget/CustomDrawerWidget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsScreen extends StatefulWidget {
   static const routeName = "news";
@@ -28,6 +25,14 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Map<String?, String> categoryMapping = {
+      AppLocalizations.of(context)?.sports: 'sports',
+      AppLocalizations.of(context)?.science: 'science',
+      AppLocalizations.of(context)?.business: 'business',
+      AppLocalizations.of(context)?.health: "health",
+      AppLocalizations.of(context)?.environment: 'environment',
+      AppLocalizations.of(context)?.politics: "politics"
+    };
     NewsCategory category =
         ModalRoute.of(context)?.settings.arguments as NewsCategory;
     return Container(
@@ -70,9 +75,9 @@ class _NewsScreenState extends State<NewsScreen> {
                       ),
                       suffixIcon: IconButton(
                         onPressed: () {
-                         setState(() {
-                           isSearch = false;
-                         });
+                          setState(() {
+                            isSearch = false;
+                          });
                         },
                         icon: const Icon(
                           Icons.search,
@@ -94,13 +99,13 @@ class _NewsScreenState extends State<NewsScreen> {
                         isSearch = true;
                         searchController.clear();
                       });
-
                     },
                   ),
           ],
         ),
         body: FutureBuilder<dynamic>(
-          future: ApiManger.getSources(category.label.toLowerCase()),
+          future: ApiManger.getSources(
+              categoryMapping[category.label.toLowerCase()] ?? "", context),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
@@ -117,10 +122,15 @@ class _NewsScreenState extends State<NewsScreen> {
                 ],
               );
             }
-            List<Source> sources = snapshot.data?.sources??[];
+            List<Source> sources = snapshot.data?.sources ?? [];
+            if (sources.isEmpty) {
+              return const SizedBox(
+                  height: 100, child: Text("No sources found."));
+            }
             return TabBarWidget(
               searchKey: searchController.text,
-              sources: sources,);
+              sources: sources,
+            );
           },
         ),
       ),
